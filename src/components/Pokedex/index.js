@@ -33,10 +33,10 @@ class Pokedex extends Component {
             </div>
             <div id="buttonbottomPicture"></div>
             <div id="speakers">
-              <div class="sp"></div>
-              <div class="sp"></div>
-              <div class="sp"></div>
-              <div class="sp"></div>
+              <div className="sp"></div>
+              <div className="sp"></div>
+              <div className="sp"></div>
+              <div className="sp"></div>
             </div>
           </div>
           <div id="bigbluebutton"></div>
@@ -70,18 +70,18 @@ class Pokedex extends Component {
             Uses mysterious powers to perform various attacks.
           </div>
           <div id="blueButtons1">
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
           </div>
           <div id="blueButtons2">
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
+            <div className="blueButton"></div>
           </div>
           <div id="miniButtonGlass4"></div>
           <div id="miniButtonGlass5"></div>
