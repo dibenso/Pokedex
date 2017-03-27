@@ -2,7 +2,11 @@
 
 A Pokédex ReactJS app built using [create-react-app](https://github.com/facebookincubator/create-react-app)  
 
-**Credit to  Bidji for the awesome Pokédex CSS taken from** [here](https://codepen.io/Bidji/pen/MYdPwo)
+**Credit to  Bidji for the awesome Pokédex CSS taken from** [here](https://codepen.io/Bidji/pen/MYdPwo)      
+## Screenshot
+![alt text][logo]
+
+[logo]: ./screenshot.png "Screenshot"
 
 ## Installation    
 * Clone this repo
