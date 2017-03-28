@@ -5,7 +5,7 @@ import { FETCH_POKEMON_START,
 
 // Bulbasaur is the first pokemon, so the Pokedex
 // will initially contain information about Bulbasaur
-export const initialState = {
+const initialState = {
   name: 'Bulbasaur',
   description: 'Bulbasaur is a Grass/Poison type Pokémon introduced in Generation 1. It is known as the Seed Pokémon.',
   fetching: false,
