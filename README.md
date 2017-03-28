@@ -22,8 +22,8 @@ or
 npm install
 ```
 
-## Demo     
-To run the demo:      
+## Using     
+To use the Pokédex app:      
 ```sh
 npm start
 ```
