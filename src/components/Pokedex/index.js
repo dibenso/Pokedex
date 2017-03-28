@@ -12,9 +12,7 @@ class PokedexContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    ...state.pokemon
-  };
+  return state.pokemon;
 }
 
 function mapDispatchToProps(dispatch) {

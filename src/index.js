@@ -5,6 +5,8 @@ import configureStore from './store/index';
 import App from './App';
 import './index.css';
 
+console.log(pokemon);
+
 const store = configureStore();
 
 ReactDOM.render(
