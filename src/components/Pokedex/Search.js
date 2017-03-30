@@ -29,23 +29,29 @@ class Search extends Component {
   handleKeyUp(event) {
     const inputValue = getInputValue();
 
-    if(checkEnterKey(event)) {
-      blurSearchInput();
+    if(checkEnterKey(event))
+      this.handleEnterKey(inputValue);
+    else
+      this.handleOtherKey(inputValue);
+  }
 
-      if(pokemonExists(inputValue))
-        this.props.fetchPokemon(inputValue);
-    }
-    else {
-      if(inputValue === this.props.pokemonSearchText)
-        return;
-      else
-        this.props.setPokemonSearchText(inputValue);
-    }
+  handleEnterKey(inputValue) {
+    blurSearchInput();
+
+    if(pokemonExists(inputValue))
+      this.props.fetchPokemon(inputValue);
+  }
+
+  handleOtherKey(inputValue) {
+    if(inputValue === this.props.pokemonSearchText)
+      return;
+    else
+      this.props.setPokemonSearchText(inputValue);
   }
 
   handleSelect(event) {
     blurSearchInput();
-    
+
     const inputValue = getInputValue();
     this.props.setPokemonSearchText(inputValue);
     this.props.fetchPokemon(inputValue);
