@@ -19,6 +19,9 @@ class Search extends Component {
           inputProps={{
             id: 'search-input'
           }}
+          customClasses={{
+            results: 'results'
+          }}
           onKeyUp={this.handleKeyUp.bind(this)}
           onOptionSelected={this.handleSelect.bind(this)}
           maxVisible={6} />
