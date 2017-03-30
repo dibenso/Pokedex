@@ -3,7 +3,10 @@ import './Pokedex.css';
 
 class Pokedex extends Component {
   static propTypes = {
-    fetchPokemon: PropTypes.func.isRequired
+    pokemon: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    }).isRequired
   }
 
   render() {

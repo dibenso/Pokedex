@@ -3,6 +3,9 @@ export const FETCH_POKEMON_START = 'FETCH_POKEMON_START';
 export const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
 export const FETCH_POKEMON_FAIL = 'FETCH_POKEMON_FAIL';
 
+// UI action types
+export const SET_POKEMON_SEARCH_TEXT = 'SET_POKEMON_SEARCH_TEXT';
+
 // endpoint for https://pokeapi.co/
 export const POKEAPI_ENDPOINT = 'http://pokeapi.co/api/v2';
 
