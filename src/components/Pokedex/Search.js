@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Typeahead } from 'react-typeahead';
-import pokemon from '../../pokemon.json';
+import pokemon from '../../unsortedPokemon.json';
 import './Search.css';
 
 class Search extends Component {
