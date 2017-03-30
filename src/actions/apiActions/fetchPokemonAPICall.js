@@ -5,10 +5,12 @@ import { POKEAPI_ENDPOINT } from '../../constants';
 import { checkStatus, parseJSON } from './util';
 
 const fetchPokemonAPICall = nameOrId => {
+  const searchItem = isString(nameOrId) ? nameOrId.toLowerCase() : nameOrId;
+
   return dispatch => {
     dispatch(startPokemonFetch());
 
-    return fetch(`${POKEAPI_ENDPOINT}/pokemon-species/${nameOrId}`)
+    return fetch(`${POKEAPI_ENDPOINT}/pokemon-species/${searchItem}`)
     .then(checkStatus)
     .then(parseJSON)
     .then(json => {
@@ -33,6 +35,11 @@ function getNameByLanguage(names, language="en") {
   return names.find(name =>
     name.language.name === language
   ).name;
+}
+
+// check if search item is a string
+function isString(val) {
+  return (typeof val === 'string' || typeof val === 'object');
 }
 
 export default fetchPokemonAPICall;

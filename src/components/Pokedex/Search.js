@@ -19,49 +19,40 @@ class Search extends Component {
           inputProps={{
             id: 'search-input'
           }}
-          onKeyUp={event => {
-            const actions = {
-              setPokemonSearchText: this.props.setPokemonSearchText
-            };
-            handleKeyUp(event, this.props.pokemonSearchText, actions);
-          }}
-          onOptionSelected={event => {
-            const actions = {
-              setPokemonSearchText: this.props.setPokemonSearchText,
-              fetchPokemon: this.props.fetchPokemon
-            };
-            handleSelect(event, actions);
-          }}
+          onKeyUp={this.handleKeyUp.bind(this)}
+          onOptionSelected={this.handleSelect.bind(this)}
           maxVisible={6} />
       </div>
     );
   }
+
+  handleKeyUp(event) {
+    const inputValue = getInputValue();
+
+    if(checkEnterKey(event)) {
+      blurSearchInput();
+      if(pokemonExists(inputValue))
+        this.props.fetchPokemon(inputValue);
+    }
+    else {
+      if(inputValue === this.props.pokemonSearchText)
+        return;
+      else
+        this.props.setPokemonSearchText(inputValue);
+    }
+  }
+
+  handleSelect(event) {
+    const inputValue = getInputValue();
+    this.props.setPokemonSearchText(inputValue);
+    this.props.fetchPokemon(inputValue);
+  }
 }
 
-function handleKeyUp(event, pokemonSearchText, actions={}) {
-  const { setPokemonSearchText } = actions;
-  const inputValue = getInputValue();
-
-  blurIfEnter(event);
-
-  if(inputValue === pokemonSearchText)
-    return;
-
-  setPokemonSearchText(inputValue);
-}
-
-function handleSelect(event, actions={}) {
-  const { setPokemonSearchText,
-          fetchPokemon } = actions;
-
-  const inputValue = getInputValue();
-  setPokemonSearchText(inputValue);
-  fetchPokemon(inputValue.toLowerCase());
-}
-
-function blurIfEnter(event) {
-  if(checkEnterKey(event))
-    blurSearchInput();
+function pokemonExists(pokemonName) {
+  return pokemon.find(name => {
+    return name.toLowerCase() === pokemonName.toLowerCase();
+  });
 }
 
 function checkEnterKey(event) {
