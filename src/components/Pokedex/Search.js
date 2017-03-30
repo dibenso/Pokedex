@@ -15,10 +15,30 @@ class Search extends Component {
       <div>
         <Typeahead
           options={pokemon}
-          maxVisible={2} />
+          placeholder="Enter pokemon name here..."
+          inputProps={{
+            id: 'search-input'
+          }}
+          onKeyDown={event => blurIfEnter(event)}
+          onOptionSelected={event => blurSearchInput()}
+          maxVisible={6} />
       </div>
     );
   }
+}
+
+function blurIfEnter(event) {
+  if(checkEnterKey(event))
+    blurSearchInput();
+}
+
+function checkEnterKey(event) {
+  const charCode = event.which || event.keyCode;
+  return charCode === 13;
+}
+
+function blurSearchInput() {
+  document.querySelector('#search-input').blur();
 }
 
 export default Search;
