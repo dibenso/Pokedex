@@ -7,6 +7,7 @@ class Search extends Component {
   static propTypes = {
     fetchPokemon: PropTypes.func.isRequired,
     setPokemonSearchText: PropTypes.func.isRequired,
+    setPokemonError: PropTypes.func.isRequired,
     pokemonSearchText: PropTypes.string.isRequired
   }
 
@@ -43,6 +44,8 @@ class Search extends Component {
 
     if(pokemonExists(inputValue))
       this.props.fetchPokemon(inputValue);
+    else
+      this.props.setPokemonError(`\`${inputValue}\` is not a Pokémon.`);
   }
 
   handleOtherKey(inputValue) {

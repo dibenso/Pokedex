@@ -1,6 +1,7 @@
 import { FETCH_POKEMON_START,
          FETCH_POKEMON_SUCCESS,
-         FETCH_POKEMON_FAIL
+         FETCH_POKEMON_FAIL,
+         SET_POKEMON_ERROR
        } from '../constants'
 
 // Bulbasaur is the first pokemon, so the Pokedex
@@ -34,6 +35,12 @@ const pokemon = (state=initialState, action) => {
       return {
         ...state,
         fetching: false,
+        error: action.error
+      };
+
+    case SET_POKEMON_ERROR:
+      return {
+        ...state,
         error: action.error
       };
 

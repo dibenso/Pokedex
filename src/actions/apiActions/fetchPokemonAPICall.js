@@ -1,7 +1,8 @@
 import { startPokemonFetch,
          successPokemonFetch,
          failPokemonFetch } from '../pokemonActions';
-import { POKEAPI_ENDPOINT } from '../../constants';
+import { POKEAPI_ENDPOINT,
+         FETCH_ERROR_MESSAGE } from '../../constants';
 import { checkStatus, parseJSON } from './util';
 
 const fetchPokemonAPICall = nameOrId => {
@@ -19,7 +20,14 @@ const fetchPokemonAPICall = nameOrId => {
 
       return dispatch(successPokemonFetch({name, description}));
     })
-    .catch(error => dispatch(failPokemonFetch(error.message)));
+    .catch(error => {
+      if(error.notFound)
+        dispatch(failPokemonFetch(error));
+      else {
+        error.message = FETCH_ERROR_MESSAGE;
+        dispatch(failPokemonFetch(error));
+      }
+    });
   }
 };
 

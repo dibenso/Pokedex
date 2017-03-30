@@ -1,12 +1,14 @@
-import { FETCH_ERROR_MESSAGE,
-         FETCH_NOT_FOUND_MESSAGE } from '../../constants';
+import { FETCH_NOT_FOUND_MESSAGE } from '../../constants';
 
 export const checkStatus = response => {
   if(response.status !== 200) {
-    if(response.status === 404)
-      throw new Error(FETCH_NOT_FOUND_MESSAGE);
+    if(response.status === 404) {
+      const error = new Error(FETCH_NOT_FOUND_MESSAGE);
+      error.notFound = true;
+      throw error;
+    }
     else
-      throw new Error(FETCH_ERROR_MESSAGE);
+      throw new Error();
   }
   else
     return response;
