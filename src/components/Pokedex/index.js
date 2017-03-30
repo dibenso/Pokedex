@@ -5,7 +5,8 @@ import Pokedex from './Pokedex';
 import Search from '../Search';
 import ErrorIndicator from '../ErrorIndicator';
 import { fetchPokemonAPICall as fetchPokemon,
-         setPokemonError } from '../../actions/pokemonActions';
+         setPokemonError,
+         clearPokemonError } from '../../actions/pokemonActions';
 import { setPokemonSearchText } from '../../actions/uiActions';
 
 class PokedexContainer extends Component {
@@ -13,6 +14,7 @@ class PokedexContainer extends Component {
     fetchPokemon: PropTypes.func.isRequired,
     setPokemonSearchText: PropTypes.func.isRequired,
     setPokemonError: PropTypes.func.isRequired,
+    clearPokemonError: PropTypes.func.isRequired,
     pokemonSearchText: PropTypes.string.isRequired,
     pokemon: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -25,6 +27,7 @@ class PokedexContainer extends Component {
       fetchPokemon: this.props.fetchPokemon,
       setPokemonSearchText: this.props.setPokemonSearchText,
       setPokemonError: this.props.setPokemonError,
+      clearPokemonError: this.props.clearPokemonError,
       pokemonSearchText: this.props.pokemonSearchText,
     };
 
@@ -49,7 +52,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchPokemon,
     setPokemonSearchText,
-    setPokemonError
+    setPokemonError,
+    clearPokemonError
   }, dispatch);
 }
 

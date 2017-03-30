@@ -1,7 +1,8 @@
 import { FETCH_POKEMON_START,
          FETCH_POKEMON_SUCCESS,
          FETCH_POKEMON_FAIL,
-         SET_POKEMON_ERROR } from '../constants';
+         SET_POKEMON_ERROR,
+         CLEAR_POKEMON_ERROR } from '../constants';
 import { fetchPokemonAPICall } from './apiActions';
 
 export const startPokemonFetch = () => ({
@@ -26,5 +27,9 @@ export const setPokemonError = message => {
     error
   }
 }
+
+export const clearPokemonError = () => ({
+  type: CLEAR_POKEMON_ERROR
+})
 
 export { fetchPokemonAPICall };

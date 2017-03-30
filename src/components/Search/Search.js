@@ -8,6 +8,7 @@ class Search extends Component {
     fetchPokemon: PropTypes.func.isRequired,
     setPokemonSearchText: PropTypes.func.isRequired,
     setPokemonError: PropTypes.func.isRequired,
+    clearPokemonError: PropTypes.func.isRequired,
     pokemonSearchText: PropTypes.string.isRequired
   }
 
@@ -51,8 +52,10 @@ class Search extends Component {
   handleOtherKey(inputValue) {
     if(inputValue === this.props.pokemonSearchText)
       return;
-    else
-      this.props.setPokemonSearchText(inputValue);
+    else if(inputValue === '')
+      this.props.clearPokemonError();
+    
+    this.props.setPokemonSearchText(inputValue);
   }
 
   handleSelect(event) {
