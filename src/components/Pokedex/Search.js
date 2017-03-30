@@ -19,12 +19,44 @@ class Search extends Component {
           inputProps={{
             id: 'search-input'
           }}
-          onKeyDown={event => blurIfEnter(event)}
-          onOptionSelected={event => blurSearchInput()}
+          onKeyUp={event => {
+            const actions = {
+              setPokemonSearchText: this.props.setPokemonSearchText
+            };
+            handleKeyUp(event, this.props.pokemonSearchText, actions);
+          }}
+          onOptionSelected={event => {
+            const actions = {
+              setPokemonSearchText: this.props.setPokemonSearchText,
+              fetchPokemon: this.props.fetchPokemon
+            };
+            handleSelect(event, actions);
+          }}
           maxVisible={6} />
       </div>
     );
   }
+}
+
+function handleKeyUp(event, pokemonSearchText, actions={}) {
+  const { setPokemonSearchText } = actions;
+  const inputValue = getInputValue();
+
+  blurIfEnter(event);
+
+  if(inputValue === pokemonSearchText)
+    return;
+
+  setPokemonSearchText(inputValue);
+}
+
+function handleSelect(event, actions={}) {
+  const { setPokemonSearchText,
+          fetchPokemon } = actions;
+
+  const inputValue = getInputValue();
+  setPokemonSearchText(inputValue);
+  fetchPokemon(inputValue.toLowerCase());
 }
 
 function blurIfEnter(event) {
@@ -39,6 +71,10 @@ function checkEnterKey(event) {
 
 function blurSearchInput() {
   document.querySelector('#search-input').blur();
+}
+
+function getInputValue() {
+  return document.querySelector('#search-input').value;
 }
 
 export default Search;
