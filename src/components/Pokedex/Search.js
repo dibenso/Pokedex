@@ -31,6 +31,7 @@ class Search extends Component {
 
     if(checkEnterKey(event)) {
       blurSearchInput();
+
       if(pokemonExists(inputValue))
         this.props.fetchPokemon(inputValue);
     }
@@ -43,6 +44,8 @@ class Search extends Component {
   }
 
   handleSelect(event) {
+    blurSearchInput();
+    
     const inputValue = getInputValue();
     this.props.setPokemonSearchText(inputValue);
     this.props.fetchPokemon(inputValue);
