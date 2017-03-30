@@ -20,16 +20,22 @@ const fetchPokemonAPICall = nameOrId => {
 
       return dispatch(successPokemonFetch({name, description}));
     })
-    .catch(error => {
-      if(error.notFound)
-        dispatch(failPokemonFetch(error));
-      else {
-        error.message = FETCH_ERROR_MESSAGE;
-        dispatch(failPokemonFetch(error));
-      }
-    });
+    .catch(handleError)
+    .then(error => dispatch(failPokemonFetch(error)));
   }
 };
+
+// Used to handle network and 4xx errors
+function handleError(error) {
+  return new Promise(resolve => {
+    if(error.notFound)
+      resolve(error);
+    else {
+      error.message = FETCH_ERROR_MESSAGE;
+      resolve(error);
+    }
+  });
+}
 
 // Used to get the description of a pokemon from a json response 
 function getDescriptionByLanguage(descriptions, language="en") {
