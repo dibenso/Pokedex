@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Autocomplete from 'react-autocomplete';
+import { Typeahead } from 'react-typeahead';
 import pokemon from '../../pokemon.json';
 import './Search.css';
 
@@ -13,17 +13,9 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Autocomplete
-          value={this.props.pokemonSearchText}
-          inputProps={{name: "Pokemon", id: "pokemon-autocomplete"}}
-          items={pokemon}
-          getItemValue={item => item}
-          onChange={(event, value) => this.props.setPokemonSearchText(value)}
-          onSelect={value => this.props.setPokemonSearchText(value)}
-          renderItem={(item, isHighlighted) => (
-            <p>{item.name}</p>
-          )}
-        />
+        <Typeahead
+          options={pokemon}
+          maxVisible={2} />
       </div>
     );
   }
