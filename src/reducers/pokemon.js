@@ -7,7 +7,7 @@ import { FETCH_POKEMON_START,
 // will initially contain information about Bulbasaur
 const initialState = {
   name: 'Bulbasaur',
-  description: 'Bulbasaur is a Grass/Poison type Pokémon introduced in Generation 1. It is known as the Seed Pokémon.',
+  description: 'Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger.',
   fetching: false,
   error: null       // contains an error if there was an error while fetching
 }

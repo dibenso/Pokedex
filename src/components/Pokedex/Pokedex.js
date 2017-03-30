@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './Pokedex.css';
 
 class Pokedex extends Component {
+  static propTypes = {
+    fetchPokemon: PropTypes.func.isRequired
+  }
+
   render() {
     return (
       <div id="pokedex">
