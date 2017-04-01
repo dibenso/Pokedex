@@ -69,12 +69,8 @@ class Pokedex extends Component {
         </div>
         <div id="right">
           <div id="stats">
-            <strong>Name :</strong> Psyduck<br/>
-            <strong>Type :</strong> Water<br/>
-            <strong>Height :</strong> 2'072''<br/>
-            <strong>Weight :</strong> 43.2 lbs.<br/><br/>
-            <strong>The duck Pokemon</strong><br/>
-            Uses mysterious powers to perform various attacks.
+            <strong>Name :</strong> {this.props.pokemon.name}<br/>
+            <p>{this.props.pokemon.description}</p>
           </div>
           <div id="blueButtons1">
             <div className="blueButton"></div>
