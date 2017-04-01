@@ -36,7 +36,10 @@ class Pokedex extends Component {
               <div id="buttontopPicture2"></div>
             </div>
             <div id="picture">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/200653/psykokwak.gif" alt="psykokwak" height="170" />
+              <img src={`https://img.pokemondb.net/artwork/${this.props.pokemon.name.toLowerCase()}.jpg`}
+                   alt={this.props.pokemon.name}
+                   height="170"
+                   width="170" />
             </div>
             <div id="buttonbottomPicture"></div>
             <div id="speakers">
