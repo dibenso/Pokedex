@@ -20,8 +20,10 @@ const fetchPokemonAPICall = nameOrId => {
 
       return dispatch(successPokemonFetch({name, description}));
     })
-    .catch(handleError)
-    .then(error => dispatch(failPokemonFetch(error)));
+    .catch(error => {
+      handleError(error)
+      .then(dispatch(failPokemonFetch(error)))
+    })
   }
 };
 
