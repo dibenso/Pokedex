@@ -4,7 +4,7 @@ import './ErrorIndicator.css';
 class ErrorIndicator extends Component {
   static propTypes = {
     error: PropTypes.shape({
-      message: PropTypes.string.isRequired
+      message: PropTypes.string
     })
   }
 
