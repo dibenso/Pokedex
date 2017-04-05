@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pokedex from './Pokedex';
 import Search from '../Search';
+import Loader from '../Loader';
 import ErrorIndicator from '../ErrorIndicator';
 import { fetchPokemonAPICall as fetchPokemon,
          setPokemonError,
@@ -34,6 +35,7 @@ class PokedexContainer extends Component {
     return (
       <div>
         <Search {...searchProps} />
+        <Loader loading={this.props.pokemon.fetching} />
         <ErrorIndicator error={this.props.pokemon.error} />
         <Pokedex pokemon={this.props.pokemon} />
       </div>
