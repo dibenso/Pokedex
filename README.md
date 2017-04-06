@@ -4,17 +4,17 @@ A Pokédex ReactJS app built using [create-react-app](https://github.com/faceboo
 
 **Credit to  Bidji for the awesome Pokédex CSS taken from** [here](https://codepen.io/Bidji/pen/MYdPwo)      
 ## Screenshots
-![screenshot1][logo]
+![screenshot1][s1]
 
-[logo]: ./screenshot1.png "screenshot1"
+[s1]: ./screenshot1.png "screenshot1"
 
-![screenshot2][logo]
+![screenshot2][s2]
 
-[logo]: ./screenshot2.png "screenshot2"
+[s2]: ./screenshot2.png "screenshot2"
 
-![screenshot3][logo]
+![screenshot3][s3]
 
-[logo]: ./screenshot3.png "screenshot3"
+[s3]: ./screenshot3.png "screenshot3"
 
 ## Installation    
 * Clone this repo
