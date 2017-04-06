@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { GridLoader } from 'halogen';
+import styles from './styles'
 
 export class Loader extends Component {
   static propTypes = {
@@ -7,17 +7,17 @@ export class Loader extends Component {
   }
 
   render() {
-    const color = '#4DAF7C';
+    const { loading } = this.props;
 
     return (
       <div>
-        {this.props.loading && (
-          <div className="loader-container">
+        <div>
+          {loading && (
             <div className="loader">
-              <GridLoader color={color} />
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        <style>{styles}</style>
       </div>
     );
   }
