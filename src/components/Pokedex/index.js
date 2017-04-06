@@ -19,26 +19,33 @@ class PokedexContainer extends Component {
     pokemonSearchText: PropTypes.string.isRequired,
     pokemon: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
+      description: PropTypes.string.isRequired,
+      fetching: PropTypes.bool.isRequired
     }).isRequired
   }
 
   render() {
+    const { fetchPokemon, setPokemonSearchText,
+            setPokemonError, clearPokemonError,
+            pokemonSearchText, pokemon
+          } = this.props;
+
     const searchProps = {
-      fetchPokemon: this.props.fetchPokemon,
-      setPokemonSearchText: this.props.setPokemonSearchText,
-      setPokemonError: this.props.setPokemonError,
-      clearPokemonError: this.props.clearPokemonError,
-      pokemonSearchText: this.props.pokemonSearchText,
-      pokemonName: this.props.pokemon.name
+      fetchPokemon,
+      setPokemonSearchText,
+      setPokemonError,
+      clearPokemonError,
+      pokemonSearchText,
+      pokemonName: pokemon.name,
+      fetchingPokemon: pokemon.fetching
     };
 
     return (
       <div>
         <Search {...searchProps} />
-        <Loader loading={this.props.pokemon.fetching} />
-        <ErrorIndicator error={this.props.pokemon.error} />
-        <Pokedex pokemon={this.props.pokemon} />
+        <Loader loading={pokemon.fetching} />
+        <ErrorIndicator error={pokemon.error} />
+        <Pokedex pokemon={pokemon} />
       </div>
     );
   }

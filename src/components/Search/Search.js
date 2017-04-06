@@ -10,10 +10,13 @@ class Search extends Component {
     setPokemonError: PropTypes.func.isRequired,
     clearPokemonError: PropTypes.func.isRequired,
     pokemonSearchText: PropTypes.string.isRequired,
-    pokemonName: PropTypes.string.isRequired
+    pokemonName: PropTypes.string.isRequired,
+    fetchingPokemon: PropTypes.bool.isRequired
   }
 
   render() {
+    const { pokemonSearchText, fetchingPokemon } = this.props;
+
     return (
       <div>
         <Typeahead
@@ -28,6 +31,11 @@ class Search extends Component {
           onKeyUp={this.handleKeyUp.bind(this)}
           onOptionSelected={this.handleSelect.bind(this)}
           maxVisible={6} />
+        {fetchingPokemon ? (
+          <h1>Fetching information about {pokemonSearchText}</h1>
+        ) : (
+          <h1>{pokemonSearchText}</h1>
+        )}
       </div>
     );
   }
@@ -45,7 +53,7 @@ class Search extends Component {
     blurSearchInput();
 
     if(pokemonExists(inputValue))
-      this.fetchPokemonIfNotCurrent(inputValue)
+      this.fetchPokemonIfNotCurrent(inputValue);
     else
       this.props.setPokemonError(`\`${inputValue}\` is not a Pokémon.`);
   }
@@ -64,14 +72,14 @@ class Search extends Component {
 
     const inputValue = getInputValue();
     this.props.setPokemonSearchText(inputValue);
-    this.fetchPokemonIfNotCurrent(inputValue)
+    this.fetchPokemonIfNotCurrent(inputValue);
   }
 
   fetchPokemonIfNotCurrent(pokemonName) {
     if(this.props.pokemonName === pokemonName)
-      return
+      return;
     else
-      this.props.fetchPokemon(pokemonName)
+      this.props.fetchPokemon(pokemonName);
   }
 }
 
