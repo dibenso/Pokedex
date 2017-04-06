@@ -30,6 +30,7 @@ class PokedexContainer extends Component {
       setPokemonError: this.props.setPokemonError,
       clearPokemonError: this.props.clearPokemonError,
       pokemonSearchText: this.props.pokemonSearchText,
+      pokemonName: this.props.pokemon.name
     };
 
     return (

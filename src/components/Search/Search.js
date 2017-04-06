@@ -9,7 +9,8 @@ class Search extends Component {
     setPokemonSearchText: PropTypes.func.isRequired,
     setPokemonError: PropTypes.func.isRequired,
     clearPokemonError: PropTypes.func.isRequired,
-    pokemonSearchText: PropTypes.string.isRequired
+    pokemonSearchText: PropTypes.string.isRequired,
+    pokemonName: PropTypes.string.isRequired
   }
 
   render() {
@@ -44,7 +45,7 @@ class Search extends Component {
     blurSearchInput();
 
     if(pokemonExists(inputValue))
-      this.props.fetchPokemon(inputValue);
+      this.fetchPokemonIfNotCurrent(inputValue)
     else
       this.props.setPokemonError(`\`${inputValue}\` is not a Pokémon.`);
   }
@@ -63,7 +64,14 @@ class Search extends Component {
 
     const inputValue = getInputValue();
     this.props.setPokemonSearchText(inputValue);
-    this.props.fetchPokemon(inputValue);
+    this.fetchPokemonIfNotCurrent(inputValue)
+  }
+
+  fetchPokemonIfNotCurrent(pokemonName) {
+    if(this.props.pokemonName === pokemonName)
+      return
+    else
+      this.props.fetchPokemon(pokemonName)
   }
 }
 
