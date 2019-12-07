@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "handlebars": "^4.5.3",
+    "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
@@ -10,6 +13,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.0",
     "redux-thunk": "^2.2.0",
+    "tar": "^5.0.5",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
