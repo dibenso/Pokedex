@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "react": "^15.4.2",
